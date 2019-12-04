@@ -3758,6 +3758,18 @@ SOFTWARE.
     });
   };
 
+  /**
+   * Convert percentage to decimal
+   * @param {string} value
+   */
+  function parseGradientOffset(value) {
+    var parsedValue = parseFloat(value);
+    if (!isNaN(parsedValue) && value.indexOf("%") >= 0) {
+      return parsedValue / 100;
+    }
+    return parsedValue;
+  }
+
   // adds a gradient to defs and the pdf document for later use, type is either "axial" or "radial"
   // opacity is only supported rudimentary by averaging over all stops
   // transforms are applied on use
@@ -3771,7 +3783,7 @@ SOFTWARE.
       if (element.tagName.toLowerCase() === "stop") {
         var color = new RGBColor(getAttribute(element, "stop-color"));
         colors.push({
-          offset: parseFloat(element.getAttribute("offset")),
+          offset: parseGradientOffset(element.getAttribute("offset")),
           color: [color.r, color.g, color.b]
         });
         var opacity = getAttribute(element, "stop-opacity");
