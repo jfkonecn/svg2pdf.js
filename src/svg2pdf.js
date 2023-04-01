@@ -52,7 +52,7 @@ SOFTWARE.
 
   // pathSegList is marked deprecated in chrome, so parse the d attribute manually if necessary
   var getPathSegList = function (node) {
-    var d = node.getAttribute("d");
+    var d = node.getAttribute("d") || "";
 
     // Replace arcs before path segment list is handled
     if (SvgPath) {
@@ -61,7 +61,7 @@ SOFTWARE.
     }
 
     var pathSegList = node.pathSegList;
-    
+
     if (pathSegList) {
       return pathSegList;
     }
@@ -2260,7 +2260,7 @@ SOFTWARE.
     });
   } else if (typeof module !== "undefined" && module.exports) {
     RGBColor = require("./rgbcolor.js");
-    SvgPath = require("SvgPath");
+    SvgPath = require("svgpath");
     FontFamily = require("font-family");
     cssEsc = require("cssesc");
     module.exports = svg2pdf;

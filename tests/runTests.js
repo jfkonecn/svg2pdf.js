@@ -1,6 +1,7 @@
 const debug = false;
 
 const tests = [
+    "cbioportal-overlap",
     "clippath",
     "complete-bpmn",
     "complete-computer-network",
