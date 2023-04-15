@@ -1,5 +1,7 @@
 window.tests = [
   'attribute-style-precedence',
+  'cbioportal-gradient-percent-offset',
+  'cbioportal-overlap',
   'clippath',
   'clippath-empty',
   'clippath-svg',
